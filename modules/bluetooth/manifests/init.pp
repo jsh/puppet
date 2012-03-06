@@ -1,14 +1,18 @@
 class bluetooth {
 
-  package {'bluez':
-      name   => ['bluez-libs', 'bluez-utils'],
+  package {'bluez-libs':
       ensure => 'present',
+  }
+
+  package {'bluez-utils':
+      ensure  => 'present',
+      require => Package['bluez-libs']
   }
 
   service {'hidd':
       ensure  => 'running',
       enable  => true,
       status  => 'source /etc/init.d/functions && status hidd',
-      require => Package['bluez'],
+      require => Package['bluez-utils'],
   }
 }
