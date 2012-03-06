@@ -5,7 +5,7 @@ class bluetooth ($ensure='present'){
   }
 
   package {'bluez-utils':
-      ensure  => $ensure
+      ensure  => $ensure,
   }
 
   service {'hidd':
@@ -24,7 +24,7 @@ class bluetooth ($ensure='present'){
         enable => false,
         ensure => stopped,
       }
-      Service['hidd'] -> Package['bluez-utils'] -> Package['bluez-libs']
+      Package['bluez-libs'] <- Package['bluez-utils'] <- Service['hidd']
   }
 
 }
