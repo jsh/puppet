@@ -1,22 +1,20 @@
 class ssh {
-  package {'sshd':
+  package {'ssh':
         ensure => present,
-        name  =>  'openssh-server',
+        name  =>  'openssh-clients',
   }
-  
-  file {'/etc/ssh/sshd_config':
+
+  file {'/etc/ssh/ssh_config':
       ensure    => present,
       mode    => '0600',
       owner   => 'root',
       group   => 'root',
-      source  => 'puppet:///modules/ssh/sshd_config',
-      require => Package['openssh-server'],
+      source  => 'puppet:///modules/ssh/ssh_config',
+      require => Package['ssh'],
   }
-  
-  
+
   service {'sshd':
-      ensure    => running,
-      enable    => true,
-      subscribe => File['/etc/ssh/sshd_config'],
+      ensure    => 'stopped',
+      enable    => false,
   }
 }
