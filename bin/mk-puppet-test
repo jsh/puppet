@@ -1,0 +1,11 @@
+#!/bin/bash -eux
+
+die() { echo $* >&2; exit -1; }
+
+pdir=/etc/puppetlabs/puppet
+module=$1
+cd $pdir/$module
+[ -f $init.pp ] || die "no module file $PWD/manifests/init.pp"
+
+[ -d tests ] || mkdir tests
+echo include $module > tests/init.pp

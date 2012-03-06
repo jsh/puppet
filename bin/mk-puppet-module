@@ -1,0 +1,6 @@
+#!/bin/bash -eux
+
+cd /etc/puppetlabs/puppet/modules
+mkdir $1
+cd $1
+mkdir files manifests templates tests
