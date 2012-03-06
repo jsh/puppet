@@ -1,1 +1,3 @@
-include bluetooth::disable
+class { 'bluetooth':
+    ensure => 'absent',
+}

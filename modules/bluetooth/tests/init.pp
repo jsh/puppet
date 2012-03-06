@@ -1,1 +1,3 @@
-include bluetooth
+class { 'bluetooth':
+    ensure => 'present'
+}
