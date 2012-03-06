@@ -1,6 +1,23 @@
 #!/bin/bash -eux
 
-cd /etc/puppetlabs/puppet/modules
-mkdir $1
-cd $1
+die() { echo $* >&2; exit -1; }
+
+pdir=/etc/puppetlabs/puppet
+
+# make the module structure
+cd $pdir/modules
+
+module=$1
+mkdir $module
+cd $module
 mkdir files manifests templates tests
+
+# create the top-level manifest
+cat <<INIT > manifests/init.pp
+class $module {
+
+}
+INIT
+
+echo include $module > tests/init.pp
+puppet apply --noop -v tests/init.pp
