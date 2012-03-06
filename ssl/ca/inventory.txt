@@ -1,0 +1,9 @@
+# Inventory of signed certificates
+# SERIAL NOT_BEFORE NOT_AFTER SUBJECT
+0x0001 2012-03-04T09:58:18GMT 2017-03-04T09:58:18GMT /CN=Puppet CA generated on localhost.localdomain at Mon Mar  5 09:57:52 UTC 2012
+0x0002 2012-03-04T09:58:18GMT 2017-03-04T09:58:18GMT /CN=p2.puppetlabs.lan
+0x0003 2012-03-04T09:58:28GMT 2017-03-04T09:58:28GMT /CN=pe-internal-dashboard
+0x0004 2012-03-04T09:58:57GMT 2017-03-04T09:58:57GMT /CN=pe-internal-peadmin-mcollective-client
+0x0005 2012-03-04T09:58:58GMT 2017-03-04T09:58:58GMT /CN=pe-internal-puppet-console-mcollective-client
+0x0006 2012-03-04T09:58:59GMT 2017-03-04T09:58:59GMT /CN=pe-internal-mcollective-servers
+0x0007 2012-03-04T09:58:59GMT 2017-03-04T09:58:59GMT /CN=pe-internal-broker
