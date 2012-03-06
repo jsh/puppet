@@ -1,14 +1,15 @@
 class stages::config {
-  file {'/etc/ssh/ssh_config':
+  file {'/etc/ssh/sshd_config':
       ensure    => present,
       mode    => '0600',
       owner   => 'root',
       group   => 'root',
-      source  => 'puppet:///modules/ssh/ssh_config',
+      source  => 'puppet:///modules/stages/sshd_config',
   }
 
   service {'sshd':
       ensure    => 'stopped',
       enable    => false,
+      subscribe => File['/etc/ssh/sshd_config']
   }
 }

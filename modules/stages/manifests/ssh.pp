@@ -1,6 +1,5 @@
 class stages::ssh {
-  package {'ssh':
+  package {'openssh':
         ensure => present,
-        name  =>  'openssh-clients',
   }
 }
