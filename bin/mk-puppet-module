@@ -11,6 +11,7 @@ module=$1
 mkdir $module
 cd $module
 mkdir files manifests templates tests
+mkdir -p lib/{facter,puppet/parser/functions}
 
 # create the top-level manifest
 cat <<INIT > manifests/init.pp
