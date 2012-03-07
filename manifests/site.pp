@@ -40,6 +40,13 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  notify { 'Hello world!':}
 }
 
+node 'p2.puppetlabs.lan' {
+  include motd
+}
 
+node 'invalid' {
+    notify{"don't go here":}
+}
